@@ -1,0 +1,15 @@
+
+<h1 mat-dialog-title>Administrating</h1>
+<div mat-dialog-content>
+
+    <mat-form-field *ngFor="let field of fields">
+      <input matInput placeholder="{{field.name}}" [(ngModel)]="data[field.name]"/>
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Discard</button>
+  <button mat-button [mat-dialog-close]="{action:'ok', data: data}" cdkFocusInitial>Save</button>
+  <button mat-button color="warn" *ngIf="data.id || data.code" [mat-dialog-close]="{action:'delete'}" cdkFocusInitial>Delete</button>
+</div>
+
+
